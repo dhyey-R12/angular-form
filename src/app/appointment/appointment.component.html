@@ -1,0 +1,135 @@
+<style>
+    .form {
+        margin: 50px 0;
+    }
+
+    /* footer */
+    footer {
+        background: #24292E;
+        color: #fff;
+        padding: 25px 0;
+    }
+
+    footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">BARBERZ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/appointment">Appointment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="border p-4 w-75 mx-auto form">
+        <div class="header">
+            <h1 class="text-center text-capitilaze">Appointment Form</h1>
+        </div>
+        <form class="needs-validation" [formGroup]='appoint' (ngSubmit)="onSubmit()" #myForm="ngForm">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Enter Name" formControlName="post_content"
+                    [ngClass]="{ 'is-invalid': submitted && f.post_content.errors }" />
+                <div *ngIf="submitted && f.post_content.errors" class="invalid-feedback">
+                    <div *ngIf="f.post_content.errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="Enter Email" formControlName="post_title"
+                        [ngClass]="{ 'is-invalid': submitted && f.post_title.errors }" />
+                    <div *ngIf="submitted && f.post_title.errors" class="invalid-feedback">
+                        <div *ngIf="f.post_title.errors.required">First Email is required</div>
+                        <div *ngIf="f.to_ping.errors.pattern">Please, Enter Valid Email.</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label>Mobile No.</label>
+                    <input type="text" class="form-control" placeholder="Enter Mobile No." formControlName="to_ping"
+                        [ngClass]="{ 'is-invalid': submitted && f.to_ping.errors }" />
+                    <div *ngIf="submitted && f.to_ping.errors" class="invalid-feedback">
+                        <div *ngIf="f.to_ping.errors.required">First Mobile No. is required</div>
+                        <div *ngIf="f.to_ping.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label>Date & Time</label>
+                <input type="datetime" class="form-control" placeholder="YY-MM-DD HH:MM:AM/PM"
+                    formControlName="post_date" [ngClass]="{ 'is-invalid': submitted && f.post_date.errors }" />
+                <div *ngIf="submitted && f.post_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.post_date.errors.required">First Date & Time is required</div>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="exampleFormControlSelect1">Services</label>
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="post_excerpt"
+                    [ngClass]="{ 'is-invalid': submitted && f.post_excerpt.errors }">
+                    <option aria-placeholder="Event name">Select Services</option>
+                    <option>Hair Cut</option>
+                    <option>Hair Color</option>
+                    <option>Hair Smoothening</option>
+                    <option>Beard Styling​</option>
+                    <option>Hair Straightening</option>
+                    <option>Hair Wash & Dry</option>
+                </select>
+                <div *ngIf="submitted && f.post_excerpt.errors" class="invalid-feedback">
+                    <div *ngIf="f.post_excerpt.errors.required">First Services is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Address</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Enter Address"
+                    formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                </textarea>
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">First Address is required</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" (click)="appointment(appoint.value)" [disabled]="!myForm.form.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="m-0 p-0">© 2020, BarberZ Salon. All rights reserved.</h4>
+            </div>
+            <div class="col-sm-6">
+                <div class="text-center">
+                    <a class="d-inline-block" routerLink="/home">Home</a>
+                    <a class="d-inline-block mx-5" routerLink="/appointment">Appointment</a>
+                    <a class="d-inline-block" routerLink="/login">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<router-outlet></router-outlet>
+
+
+

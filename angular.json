@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "form1": {
+    "form3": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/form1",
+            "outputPath": "dist/form3",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "form1:build"
+            "browserTarget": "form3:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "form1:build:production"
+              "browserTarget": "form3:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "form1:build"
+            "browserTarget": "form3:build"
           }
         },
         "test": {
@@ -89,7 +89,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
@@ -114,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "form1:serve"
+            "devServerTarget": "form3:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "form1:serve:production"
+              "devServerTarget": "form3:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "form1"
+  "defaultProject": "form3"
 }

@@ -1,0 +1,202 @@
+<style>
+    .banner {
+        /* background: url(assets/images/hero_1.jpg); */
+        background-image: linear-gradient(rgba(000, 000, 000, 0.5), rgba(000, 000, 000, 0.5)), url(assets/images/hero_1.jpg);
+        background-attachment: fixed;
+        background-position: cover;
+        background-repeat: no-repeat;
+        padding: 18% 0;
+    }
+
+    .banner h1 {
+        font-size: 48px;
+        font-weight: 300;
+    }
+
+    .banner p {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    /* welcome */
+    .welcome {
+        padding: 7% 0;
+    }
+
+    .welcome h1 {
+        margin-bottom: 30px;
+        font-weight: 300;
+        line-height: 1.2;
+        font-size: 3rem;
+        color: rgb(220, 53, 69);
+        position: relative;
+        padding-bottom: 30px;
+    }
+
+    .welcome h6 {
+        color: rgb(54, 77, 89);
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    /* booking */
+    .booking {
+        background: #000;
+        padding: 6% 0;
+    }
+
+    .booking button {
+        background: #fff;
+        padding: 10px 15px;
+        font-weight: 600;
+        border: solid #000;
+        border-radius: 7px;
+        transition: 0.5s;
+    }
+
+    .booking button:hover {
+        background: #000;
+        border: solid #fff;
+        color: #fff;
+    }
+
+    /* about */
+    .about {
+        padding: 70px 0;
+    }
+
+    .about h2 {
+        color: #000000;
+        font-family: "ABeeZee", Sans-serif;
+        font-weight: 300;
+    }
+
+    .about h3 {
+        color: #000000;
+        font-family: "ABeeZee", Sans-serif;
+        font-size: 21px;
+        font-weight: 300;
+        line-height: 1.3em;
+    }
+
+    /* footer */
+    footer {
+        background: #24292E;
+        color: #fff;
+        padding: 25px 0;
+    }
+
+    footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">BARBERZ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/appointment">Appointment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- banner -->
+<div class="banner">
+    <div class="text-center text-white">
+        <h1>More Than Just A Haircut</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque,
+            <br>maiores doloribus officia iste. Dolores.</p>
+    </div>
+</div>
+<!-- welcome -->
+<div class="welcome">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div>
+                    <img src="assets/images/img_1.jpg" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="text-center py-5">
+                    <h1>Welcome To <br>Barberz!</h1>
+                    <h6>Lorem ipsum dolor sit amet, consectetur <br>adipisicing elit. Iure nesciunt nemo vel earum
+                        <br>maxime neque!</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- booking -->
+<div class="booking">
+    <div class="text-center text-white">
+        <h1 class="m-0 p-0">Let's not wait for the "Perfect Look"</h1>
+        <h4 class="my-4">Book An Appointment Now!</h4>
+        <button routerLink="/appointment">Click here</button>
+    </div>
+</div>
+<!-- about -->
+<div class="about">
+    <div class="container">
+        <div>
+            <h2>Explore the Realm of Beauty with Salon</h2>
+            <h3>
+                With over 95+ branches nationally and internationally, Looks salon is a premium beauty salon for men and
+                women who desire to look
+                the best every day. Getting a makeover not only changes the appearance of a person but also brings back
+                the lost confidence and
+                Looks Salon would take pride in being a part of it. From beauty to grooming services, we provide a
+                tremendous range of facilities
+                that touches every dimension of beauty and hair treatments. Our repertoire of professional experts makes
+                sure that all your beauty
+                and hair questions are answered, and you leave the salon with a big smile on your face.<br><br>
+
+                With over 3000 employees engaged in transforming your look, we make sure that all the services provided
+                at our salons meet the international standards. Through our advice and solutions from the expertise in
+                this array, we aim at giving the best services through our state-of-art facilities. Our professional
+                stylists and beauty experts are constantly updated with the latest trends and fashion advices that help
+                them to work efficiently and deliver outstanding results!<br><br>
+
+                Give us an opportunity to serve you once, we are sure you'll love to come back to us again and be our
+                esteemed customer forever. Fill the form or call us to book an appointment now!
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="m-0 p-0">© 2020, BarberZ Salon. All rights reserved.</h4>
+            </div>
+            <div class="col-sm-6">
+                <div class="text-center">
+                    <a class="d-inline-block" routerLink="/home">Home</a>
+                    <a class="d-inline-block mx-5" routerLink="/appointment">Appointment</a>
+                    <a class="d-inline-block" routerLink="/login">Logout</a>
+                    <!-- <p class="d-inline-block m-0">hello</p>
+                    <p class="d-inline-block mx-4 my-0">hello</p>
+                    <p class="d-inline-block m-0">hello</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<router-outlet></router-outlet>

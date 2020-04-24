@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,24 +7,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+File:any;
 
-  loginForm: FormGroup;
-  jsonapi : any
-  constructor(private router: Router) {
-    this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
-    });
-  }
+  title = 'form3';
 
-  ngOnInit() {
+  constructor(private http: HttpClient){}
 
-  }
-
-  loginUser(value) {
-    console.log(value)
-
-  }
+  ngOnInit():void{}
 }
-
-
