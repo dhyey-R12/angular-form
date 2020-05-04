@@ -15,7 +15,7 @@
         text-decoration: none;
     }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">BARBERZ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -26,24 +26,27 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/home">Home</a>
+                    <a class="nav-link" routerLink="/home" routerlinkActive="active">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" routerLink="/appointment">Appointment</a>
+                    <a class="nav-link" routerLink="/appointment" routerlinkActive="active">Appointment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Logout</a>
+                    <a class="nav-link" routerLink="/showbooking" routerlinkActive="active">Booking</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" (click)="logoutUser()">Logout</a>
                 </li>
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
 <div class="container">
     <div class="border p-4 w-75 mx-auto form">
         <div class="header">
             <h1 class="text-center text-capitilaze">Appointment Form</h1>
         </div>
-        <form class="needs-validation" [formGroup]='appoint' (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <form class="needs-validation" [formGroup]='appoint' (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" class="form-control" placeholder="Enter Name" formControlName="post_content"
@@ -106,13 +109,20 @@
                     <div *ngIf="f.address.errors.required">First Address is required</div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100" (click)="appointment(appoint.value)" [disabled]="!myForm.form.valid">Submit</button>
+            <button type="submit" class="btn btn-primary w-100" (click)="appointment(appoint.value)">Submit</button>
+            <!-- #myForm="ngForm" [disabled]="!myForm.form.valid" -->
         </form>
     </div>
 </div>
 
+<!-- <div>
+    {{ data | json }}
+</div> -->
+<div class="border">
+<app-showbooking [MSG]="data"></app-showbooking>
+</div>
 <!-- footer -->
-<footer>
+<!-- <footer>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -127,9 +137,6 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> -->
 
 <router-outlet></router-outlet>
-
-
-

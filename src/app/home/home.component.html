@@ -91,8 +91,7 @@
         text-decoration: none;
     }
 </style>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" ngClass="parent-menu">
     <div class="container">
         <a class="navbar-brand" href="#">BARBERZ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -103,27 +102,38 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" routerLink="/home">Home</a>
+                    <a class="nav-link" routerLink="/home" routerlinkActive="active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/appointment">Appointment</a>
+                    <a class="nav-link" routerLink="/appointment" routerlinkActive="active">Appointment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Logout</a>
+                    <!-- <button routerLink="/showbooking" (click)="showbooking()">Booking</button> -->
+                    <a class="nav-link">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" (click)="logoutUser()">Logout</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<div class="border">
+<app-appointment></app-appointment>
+</div>
+<!-- <app-showbooking></app-showbooking> -->
+
 <!-- banner -->
-<div class="banner">
+<!-- <div class="banner">
     <div class="text-center text-white">
+        <h1>home</h1>
         <h1>More Than Just A Haircut</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta veritatis in tenetur doloremque,
             <br>maiores doloribus officia iste. Dolores.</p>
     </div>
 </div>
-<!-- welcome -->
+<!-- welcome
 <div class="welcome">
     <div class="container">
         <div class="row">
@@ -142,7 +152,7 @@
         </div>
     </div>
 </div>
-<!-- booking -->
+<!-- booking
 <div class="booking">
     <div class="text-center text-white">
         <h1 class="m-0 p-0">Let's not wait for the "Perfect Look"</h1>
@@ -150,7 +160,7 @@
         <button routerLink="/appointment">Click here</button>
     </div>
 </div>
-<!-- about -->
+<!-- about
 <div class="about">
     <div class="container">
         <div>
@@ -177,9 +187,53 @@
             </h3>
         </div>
     </div>
-</div>
+</div>-->
+<!-- <div *ngFor="let data of booking" class="text-dark">
+    {{data.post_title}}
+    {{data.post_content}}
+    {{data.post_date}}
+    {{data.post_excerpt}}
+    {{data.to_ping}}
+    {{data.ID}}
+</div> -->
+
+<!-- <div class="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>Email</th>
+                <th>Date & Time</th>
+                <th>Service</th>
+                <th>Mobile No.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of booking">
+                <td>{{data.ID}}</td>
+                <td>{{data.post_title}}</td>
+                <td>{{data.post_content}}</td>
+                <td>{{data.post_date}}</td>
+                <td>{{data.post_excerpt}}</td>
+                <td>{{data.to_ping}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+<!-- <div *noFor="let user of booking">
+    {{user}}
+</div> -->
+<!-- <tr *ngFor="let data of booking">
+    <td>{{data.post_title}}</td><br>
+    <td>{{data.post_content}}</td><br>
+    <td>{{data.post_date}}</td><br>
+    <td>{{data.post_excerpt}}</td><br>
+    <td>{{data.to_ping}}</td><br>
+    <td>{{data.ID}}</td>
+</tr> -->
 <!-- footer -->
-<footer>
+<!-- <footer>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -192,11 +246,11 @@
                     <a class="d-inline-block" routerLink="/login">Logout</a>
                     <!-- <p class="d-inline-block m-0">hello</p>
                     <p class="d-inline-block mx-4 my-0">hello</p>
-                    <p class="d-inline-block m-0">hello</p> -->
+                    <p class="d-inline-block m-0">hello</p>
                 </div>
             </div>
         </div>
     </div>
-</footer>
+</footer> -->
 
 <router-outlet></router-outlet>

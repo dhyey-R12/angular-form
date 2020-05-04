@@ -24,9 +24,13 @@ loginForm: FormGroup;
       this.jsonapifile = data
       console.log("loginSuccess", this.jsonapifile)
       this.router.navigate(['home'], { state: value }) 
+      localStorage.setItem('ID', JSON.stringify(this.jsonapifile.ID));
     },
     error => {
       console.error(" Error ", error)
     })
+  }
+  logoutUser(value){
+    this.http.get(`http://localhost/wordpress/wp-json/custom-plugin/logout`)
   }
 }
