@@ -49,26 +49,27 @@
         <form class="needs-validation" [formGroup]='appoint' (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" placeholder="Enter Name" formControlName="post_content"
-                    [ngClass]="{ 'is-invalid': submitted && f.post_content.errors }" />
-                <div *ngIf="submitted && f.post_content.errors" class="invalid-feedback">
-                    <div *ngIf="f.post_content.errors.required">First Name is required</div>
+                <input type="text" class="form-control" placeholder="Enter Name" [ngModel]="obj.post_title"
+                    formControlName="post_title" [ngClass]="{ 'is-invalid': submitted && f.post_title.errors }" />
+                <div *ngIf="submitted && f.post_title.errors" class="invalid-feedback">
+                    <div *ngIf="f.post_title.errors.required">First Name is required</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label>Email</label>
-                    <input type="email" class="form-control" placeholder="Enter Email" formControlName="post_title"
-                        [ngClass]="{ 'is-invalid': submitted && f.post_title.errors }" />
-                    <div *ngIf="submitted && f.post_title.errors" class="invalid-feedback">
-                        <div *ngIf="f.post_title.errors.required">First Email is required</div>
+                    <input type="email" class="form-control" placeholder="Enter Email" [ngModel]="obj.post_content"
+                        formControlName="post_content"
+                        [ngClass]="{ 'is-invalid': submitted && f.post_content.errors }" />
+                    <div *ngIf="submitted && f.post_content.errors" class="invalid-feedback">
+                        <div *ngIf="f.post_content.errors.required">First Email is required</div>
                         <div *ngIf="f.to_ping.errors.pattern">Please, Enter Valid Email.</div>
                     </div>
                 </div>
                 <div class="col">
                     <label>Mobile No.</label>
-                    <input type="text" class="form-control" placeholder="Enter Mobile No." formControlName="to_ping"
-                        [ngClass]="{ 'is-invalid': submitted && f.to_ping.errors }" />
+                    <input type="text" class="form-control" placeholder="Enter Mobile No." [ngModel]="obj.to_ping"
+                        formControlName="to_ping" [ngClass]="{ 'is-invalid': submitted && f.to_ping.errors }" />
                     <div *ngIf="submitted && f.to_ping.errors" class="invalid-feedback">
                         <div *ngIf="f.to_ping.errors.required">First Mobile No. is required</div>
                         <div *ngIf="f.to_ping.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
@@ -77,7 +78,7 @@
             </div>
             <div class="form-group mt-3">
                 <label>Date & Time</label>
-                <input type="datetime" class="form-control" placeholder="YY-MM-DD HH:MM:AM/PM"
+                <input type="datetime" class="form-control" placeholder="YY-MM-DD HH:MM:AM/PM" [ngModel]="obj.post_date"
                     formControlName="post_date" [ngClass]="{ 'is-invalid': submitted && f.post_date.errors }" />
                 <div *ngIf="submitted && f.post_date.errors" class="invalid-feedback">
                     <div *ngIf="f.post_date.errors.required">First Date & Time is required</div>
@@ -86,8 +87,8 @@
 
             <div class="form-group mt-3">
                 <label for="exampleFormControlSelect1">Services</label>
-                <select class="form-control" id="exampleFormControlSelect1" formControlName="post_excerpt"
-                    [ngClass]="{ 'is-invalid': submitted && f.post_excerpt.errors }">
+                <select class="form-control" id="exampleFormControlSelect1" [ngModel]="obj.post_excerpt"
+                    formControlName="post_excerpt" [ngClass]="{ 'is-invalid': submitted && f.post_excerpt.errors }">
                     <option aria-placeholder="Event name">Select Services</option>
                     <option>Hair Cut</option>
                     <option>Hair Color</option>
@@ -103,13 +104,15 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Address</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Enter Address"
-                    formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+                    [ngModel]="obj.address" formControlName="address"
+                    [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
                 </textarea>
                 <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
                     <div *ngIf="f.address.errors.required">First Address is required</div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100" (click)="appointment(appoint.value)">Submit</button>
+            <button type="submit" class="btn btn-primary w-25" (click)="appointment(appoint.value)">Submit</button><br>
+            <button type="submit" class="btn btn-primary mt-3 w-25" (click)="edit(appoint.value)">Update</button>
             <!-- #myForm="ngForm" [disabled]="!myForm.form.valid" -->
         </form>
     </div>
@@ -119,7 +122,7 @@
     {{ data | json }}
 </div> -->
 <div class="border">
-<app-showbooking [MSG]="data"></app-showbooking>
+    <app-showbooking [MSG]="data"></app-showbooking>
 </div>
 <!-- footer -->
 <!-- <footer>

@@ -23,49 +23,57 @@
 </nav> -->
 <div class="container">
     <div>
-        {{MSG | json }}
+        <!-- {{MSG | json }} -->
     </div>
     <div class="text-center mb-3">
-        <button class="btn btn-primary " (click)="showbooking()"> Show Booking </button>
+        <!-- <button class="btn btn-primary " (click)="showbooking()"> Show Booking </button> -->
         <!-- <a class="nav-link" routerlinkActive="active">Booking</a> -->
     </div>
-    <!-- <table class="table">
-        <thead>
-            <tr>
-                <th>NAME</th>
-                <th>Email</th>
-                <th>Date & Time</th>
-                <th>Service</th>
-                <th>Mobile No.</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let data of booking">
-                <td>{{data.pinged}}</td>
-                <td>{{data.post_title}}</td>
-                <td>{{data.post_content}}</td>
-                <td>{{data.post_date}}</td>
-                <td>{{data.post_excerpt}}</td>
-                <td>{{data.to_ping}}</td>
-            </tr>
-        </tbody>
-    </table> -->
 </div>
 
 
 <!-- <div *ngFor="let data of booking">
-    {{data}} 
-    {{data.ID}} 
+    {{data}}
 </div> -->
 
 <!-- <div>
     {{ data | json }}
 </div> -->
-<!-- <p>Child: {{ exampleChild }}</p> -->
-<tr *ngFor="let showbooking of booking">
-    <td>{{booking}}</td>
-    <td>{{booking.ID}}</td>
-    <td>{{booking.post_date}}</td>
-    <td>{{booking.post_content}}</td>
-    <td>{{booking.post_title}}</td>
-</tr>
+<div class="text-dark">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>Email</th>
+                <th>Date & Time</th>
+                <th>Service</th>
+                <th>Mobile No.</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookings">
+                <td>{{booking.id}}</td>
+                <td>{{booking.post_title}}</td>
+                <td>{{booking.post_content}}</td>
+                <td>{{booking.post_date}}</td>
+                <td>{{booking.post_excerpt}}</td>
+                <td>{{booking.to_ping}}</td>
+                <td><button class="btn btn-primary" (click) = "update(booking)">Edit</button></td>
+                <td><button class="btn btn-primary" (click) = "delete(booking)">Delete</button></td>
+            </tr>
+            <tr *ngFor="let booking of MSG">
+                <td>{{booking.id}}</td>
+                <td>{{booking.post_title}}</td>
+                <td>{{booking.post_content}}</td>
+                <td>{{booking.post_date}}</td>
+                <td>{{booking.post_excerpt}}</td>
+                <td>{{booking.to_ping}}</td>
+                <td><button class="btn btn-primary" (click) = "update(booking)">Edit</button></td>
+                <td><button class="btn btn-primary" (click) = "delete(booking)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

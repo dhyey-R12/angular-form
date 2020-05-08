@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   jsonapifile: any;
   booking: any = [];
   // booking: any;
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient, private service: ApiService ) { }
 
   logoutUser() {
     this.http.get(`http://localhost/wordpress/wp-json/custom-plugin/logout`)
@@ -20,23 +21,8 @@ export class HomeComponent implements OnInit {
         localStorage.removeItem('ID');
       })
   }
-  // showbooking() {
-  //   let id = localStorage.getItem('ID');
-
-  //   console.log("Id *", id)
-  //   let url = `http://localhost/wordpress/wp-json/custom-plugin/booking?pinged=${id}`
-
-  //   this.http.get(url)
-
-  //     .subscribe(data => {
-  //       // this.booking = data;
-  //       this.booking.push(data);
-  //       console.log("API Call", this.booking)
-  //     },
-  //       error => {
-  //         console.log("Error", error);
-  //       }
-  //     );
+  // greetStudent(){
+  //   this.service.sendmessage('morrning');
   // }
   ngOnInit(): void { }
 }
