@@ -54,25 +54,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let booking of bookings">
+            <tr *ngFor="let booking of bookings; let j=index">
                 <td>{{booking.id}}</td>
                 <td>{{booking.post_title}}</td>
                 <td>{{booking.post_content}}</td>
                 <td>{{booking.post_date}}</td>
                 <td>{{booking.post_excerpt}}</td>
                 <td>{{booking.to_ping}}</td>
-                <td><button class="btn btn-primary" (click) = "update(booking)">Edit</button></td>
-                <td><button class="btn btn-primary" (click) = "delete(booking)">Delete</button></td>
+                <td><button class="btn btn-success" (click) = "update(booking)">Edit</button></td>
+                <td><button class="btn btn-danger" (click) = "delete(booking.id)">Delete</button></td>
             </tr>
-            <tr *ngFor="let booking of MSG">
+            <tr *ngFor="let booking of MSG; let j=index">
                 <td>{{booking.id}}</td>
                 <td>{{booking.post_title}}</td>
                 <td>{{booking.post_content}}</td>
                 <td>{{booking.post_date}}</td>
                 <td>{{booking.post_excerpt}}</td>
                 <td>{{booking.to_ping}}</td>
-                <td><button class="btn btn-primary" (click) = "update(booking)">Edit</button></td>
-                <td><button class="btn btn-primary" (click) = "delete(booking)">Delete</button></td>
+                <td><button class="btn btn-success" (click) = "update(booking)">Edit</button></td>
+                <td><button class="btn btn-danger" (click) = "delete(booking.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>

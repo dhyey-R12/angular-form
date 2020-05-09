@@ -13,6 +13,7 @@ import { ShowbookingComponent } from '../showbooking/showbooking.component';
 })
 
 export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
+  // private isButtonVisible = true;
   appoint: FormGroup;
   // feature = ;
   submitted = false;
@@ -27,6 +28,8 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
   @Output() send_data = new EventEmitter<object>();
   demo: any;
   apijson: string;
+  update: any;
+  pri_id: any;
   // msg='hello msg from parent';
 
   // @ViewChild(ShowbookingComponent) child;
@@ -101,7 +104,7 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
         // localStorage.setItem('pri_id', JSON.stringify(value.id));
 
         // console.log("POST Request is successful ", data);
-        // this.appoint.reset();
+        this.appoint.reset();
       },
       error => {
         console.log("Error", error);
@@ -115,30 +118,47 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
         localStorage.removeItem('ID');
       })
   }
-  edit(value) {
-    let pri_id = localStorage.getItem('pri_id');
-    console.log("Id =>", pri_id)
+  // edit(value) {
+  // let pri_id = localStorage.getItem('pri_id');
+  // console.log("Id =>", pri_id)
+  // const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+  // // return this.httpClient.put( `http://localhost/wordpress/wp-json/custom-plugin/update?&pri_id =+ id`,
+  // this.apijson = `http://localhost/wordpress/wp-json/custom-plugin/update`;
+  // console.log('api call', this.apijson)
+
+  // return this.httpClient.put(
+  //   this.apijson,
+  //   `pri_id =${pri_id}&post_content=${value.post_content}&to_ping=${value.to_ping}&post_title=${value.post_title}&post_date=${value.post_date}
+  //   &post_excerpt=${value.post_excerpt}&address=${value.addresIDs}&action=${'wp_posts'}`,
+
+  //   { headers, responseType: 'text' }).subscribe(
+  //     data => {
+  //       // this.data.push(value);
+  //       console.log("POST Request is successful", data);
+  //       value.id = data
+  //       console.log('this is prm id ====>', value.id);
+  //     },
+  //     error => {
+  //       console.log("Error", error);
+  //     }
+  //   )
+  // }
+  updatedatanew(value) {
+    alert("Are you sure Update data");
+    console.log("this is value", value.id);
+    this.pri_id = JSON.parse(localStorage.getItem('pri_id'));
+    console.log("primary id", this.pri_id);
+
+    this.update = `http://localhost/wordpress/wp-json/custom-plugin/update?ID=${this.pri_id}`
+    console.log("ID", this.update)
+
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    // return this.httpClient.put( `http://localhost/wordpress/wp-json/custom-plugin/update?&pri_id =+ id`,
-    this.apijson = `http://localhost/wordpress/wp-json/custom-plugin/update`;
-    console.log('api call', this.apijson)
 
-    return this.httpClient.put(
-      this.apijson,
-      `pri_id =${pri_id}&post_content=${value.post_content}&to_ping=${value.to_ping}&post_title=${value.post_title}&post_date=${value.post_date}
-      &post_excerpt=${value.post_excerpt}&address=${value.addresIDs}&action=${'wp_posts'}`,
-
-      { headers, responseType: 'text' }).subscribe(
-        data => {
-          // this.data.push(value);
-          console.log("POST Request is successful", data);
-          value.id = data
-          console.log('this is prm id ====>', value.id);
-        },
-        error => {
-          console.log("Error", error);
-        }
-      )
+    return this.httpClient.put(this.update, `post_content=${value.post_content}&to_ping=${value.to_ping}&post_title=${value.post_title}&post_date=${value.post_date}
+    &post_excerpt=${value.post_excerpt}`,
+      { headers, responseType: 'text' }).subscribe((data) => {
+        console.log("this is new data", data)
+      })
   }
 }
 

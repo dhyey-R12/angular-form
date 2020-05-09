@@ -13,6 +13,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { ActiveGuard } from './active.guard';
 import { ApiService } from './api.service';
 import { ShowbookingComponent } from './showbooking/showbooking.component';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { LoginuserComponent } from './loginuser/loginuser.component';
 // import { Approutes } from './Routing';
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ShowbookingComponent } from './showbooking/showbooking.component';
     LoginComponent,
     AppointmentComponent,
     ShowbookingComponent,
+    LoginUserComponent,
+    LoginuserComponent,
 
   ],
   imports: [

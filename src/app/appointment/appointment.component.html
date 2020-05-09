@@ -112,7 +112,9 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary w-25" (click)="appointment(appoint.value)">Submit</button><br>
-            <button type="submit" class="btn btn-primary mt-3 w-25" (click)="edit(appoint.value)">Update</button>
+            <!-- <div  *ngIf="this.isButtonVisible" (click)="this.isButtonVisible = false"> -->
+                <button type="submit" class="btn btn-primary mt-3 w-25" (click)="updatedatanew(appoint.value)">Update</button>
+            <!-- </div> -->
             <!-- #myForm="ngForm" [disabled]="!myForm.form.valid" -->
         </form>
     </div>

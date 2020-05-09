@@ -50,6 +50,11 @@ export class ApiService {
       { headers, responseType: 'text' }
     )
   }
+  deletedata(id){
+  const headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+    return this.http.delete(`http://localhost/wordpress/wp-json/custom-plugin/delete?ID=${id}`,
+    {headers , responseType:'text'} )
+  }
   // edit(){
   //   let pri_id = localStorage.getItem('pri_id');
   //   console.log("Id =>", pri_id)
