@@ -111,9 +111,11 @@
                     <div *ngIf="f.address.errors.required">First Address is required</div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary w-25" (click)="appointment(appoint.value)">Submit</button><br>
+            <button type="submit" class="btn btn-primary w-100" [hidden]="isShow"
+                (click)="appointment(appoint.value)">Submit</button><br>
             <!-- <div  *ngIf="this.isButtonVisible" (click)="this.isButtonVisible = false"> -->
-                <button type="submit" class="btn btn-primary mt-3 w-25" (click)="updatedatanew(appoint.value)">Update</button>
+            <button type="submit" *ngIf="isButtonVisible" (click)="isButtonVisible = true"
+                class="btn btn-primary mt-3 w-100" (click)="updatedatanew(appoint.value)">Update</button>
             <!-- </div> -->
             <!-- #myForm="ngForm" [disabled]="!myForm.form.valid" -->
         </form>

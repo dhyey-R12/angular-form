@@ -15,6 +15,8 @@ export class ShowbookingComponent implements OnInit {
   api: any;
   send_data: any;
   bookings: any
+  isShow = false;
+  isButtonVisible:boolean;
 
   @Input() MSG: object;
   apijson: string;
@@ -47,6 +49,8 @@ export class ShowbookingComponent implements OnInit {
     // )
   }
   update(booking) {
+    this.isShow = !this.isShow
+    this.isButtonVisible = true;
     localStorage.setItem('pri_id', JSON.stringify(booking.id));
     // this.router.navigate(['appointment'], { state: this.booking });
     this.service.sendmessage(booking);

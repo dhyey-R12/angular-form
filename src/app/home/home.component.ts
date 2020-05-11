@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, private service: ApiService ) { }
 
   logoutUser() {
-    this.http.get(`http://localhost/wordpress/wp-json/custom-plugin/logout`)
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.get(`http://localhost/wordpress/wp-json/custom-plugin/logout`,
+      { headers, responseType: 'text' })
       .subscribe(data => {
         this.jsonapifile = data
         localStorage.removeItem('ID');

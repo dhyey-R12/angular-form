@@ -30,6 +30,8 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
   apijson: string;
   update: any;
   pri_id: any;
+  isShow: boolean = false;
+  isButtonVisible: boolean;
   // msg='hello msg from parent';
 
   // @ViewChild(ShowbookingComponent) child;
@@ -75,6 +77,15 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
           this.obj = message;
           console.log("booking obj", this.obj);
           console.log("name alert", this.obj.post_title);
+        }
+      )
+
+    this.service.hide$
+      .subscribe(
+        hide => {
+          console.log('this is bool value', hide)
+          this.isShow = hide;
+          this.isButtonVisible = true;
         }
       )
   }
@@ -158,6 +169,8 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
     &post_excerpt=${value.post_excerpt}`,
       { headers, responseType: 'text' }).subscribe((data) => {
         console.log("this is new data", data)
+        this.isShow = false
+        this.isButtonVisible = false;
       })
   }
 }

@@ -14,9 +14,16 @@ export class ApiService {
   teacherMessage$ = this._teacherMessageSource.asObservable();
   apijson: any;
 
+  private _hide = new Subject<any>();
+  hide$ = this._hide.asObservable();
+
   constructor(private http: HttpClient, private httpClient: HttpClient) { }
   isAppointmentRights(): boolean {
     return true;
+  }
+
+  hideButton(hide : any){
+    this._hide.next(hide);
   }
 
   sendmessage(message: any) {
@@ -50,22 +57,22 @@ export class ApiService {
       { headers, responseType: 'text' }
     )
   }
-  deletedata(id){
-  const headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+  deletedata(id) {
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this.http.delete(`http://localhost/wordpress/wp-json/custom-plugin/delete?ID=${id}`,
-    {headers , responseType:'text'} )
+      { headers, responseType: 'text' })
   }
-  // edit(){
-  //   let pri_id = localStorage.getItem('pri_id');
-  //   console.log("Id =>", pri_id)
-  //   const headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-  //   // return this.httpClient.put( `http://localhost/wordpress/wp-json/custom-plugin/update?&pri_id =+ id`,
-  //   this.apijson = `http://localhost/wordpress/wp-json/custom-plugin/update?&pri_id =+ id`;
-  //   console.log('api call', this.apijson)
-
-  //   // {headers, responseType: 'text'})
-  // }
-  // logoutuser(){
-  //   this.http.get(`http://localhost/wordpress/wp-json/custom-plugin/logout`);
-  // }
+  loginuser(value) {
+    this.jsonapi = `http://localhost/wordpress/wp-json/custom-plugin/signup`
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    console.log('object ', value)
+    // var pinged = localStorage.getItem('ID');
+    // console.log(pinged);
+    return this.httpClient.post(
+      this.jsonapi,
+      `user_login=${value.user_login}&user_nicename=${value.user_nicename}&user_email=${value.user_email}&user_pass=${value.user_pass}
+        &action=${'wp_users'}`,
+      { headers, responseType: 'text' }
+    )
+  }
 }

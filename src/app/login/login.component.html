@@ -1,27 +1,47 @@
 <style>
-    .form {
-      margin: 180px 0;
-    }
-  </style>
-  
+  .form {
+    margin: 180px 0;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" ngClass="parent-menu">
   <div class="container">
-    <div class="border p-4 w-50 mx-auto form">
-      <div class="header">
-        <h1 class="text-center">Form</h1>
-      </div>
-      <form [formGroup]='loginForm'>
-        <!-- <form> -->
-        <div class="form-group">
-          <label for="email">Email address:</label>
-          <input type="text" class="form-control" placeholder="Enter your Email" formControlName="username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" placeholder="Enter your Password" formControlName="password" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary w-100" (click)="loginUser(loginForm.value)">Login</button>
-      </form>
+    <a class="navbar-brand" href="#">BARBERZ</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/loginuser" routerlinkActive="active">SingUp</a>
+          <!-- (click)="logoutUser()" -->
+        </li>
+      </ul>
     </div>
   </div>
-  
-  <router-outlet></router-outlet>
+</nav>
+<div class="container">
+  <div class="border p-4 w-50 mx-auto form">
+    <div class="header">
+      <h1 class="text-center">Form</h1>
+    </div>
+    <form [formGroup]='loginForm'>
+      <!-- <form> -->
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="text" class="form-control" placeholder="Enter your Email" formControlName="username"
+          name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter your Password" formControlName="password"
+          name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" (click)="loginUser(loginForm.value)">Login</button>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
