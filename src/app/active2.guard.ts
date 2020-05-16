@@ -6,18 +6,16 @@ import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ActiveGuard implements CanActivate {
+export class Active2Guard implements CanActivate {
   constructor(private apiService: ApiService, private router:Router ) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.apiService.isAppointmentRights()) {
-      // return true;
-      return true;
-    }else{
-      alert("You don't have permission");
-      // console.log(" error ")
-      this.router.navigate(['Login']);
-    }
+      if(this.apiService.interceptorauth()){
+        return true;
+      }else{
+        alert("this not have permition");
+        this.router.navigate(['login']);
+      }
   }
 }

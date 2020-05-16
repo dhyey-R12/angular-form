@@ -7,13 +7,14 @@ import { ActiveGuard } from './active.guard';
 import { ShowbookingComponent } from './showbooking/showbooking.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { LoginuserComponent } from './loginuser/loginuser.component';
+import { Active2Guard } from './active2.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent, pathMatch: 'full', canActivate: [ActiveGuard] },
-  { path: 'appointment', component: AppointmentComponent, pathMatch: 'full', canActivate: [ActiveGuard] },
+  { path: 'appointment', component: AppointmentComponent, pathMatch: 'full', canActivate: [Active2Guard] },
   { path: 'showbooking', component: ShowbookingComponent, pathMatch: 'full' },
-  // { path: 'Loginuser', component: LoginuserComponent, pathMatch: 'full' },
+  { path: 'loginUser', component: LoginuserComponent, pathMatch: 'full' },
   { path: 'loginuser', component: LoginUserComponent, pathMatch: 'full' }
 ];
 

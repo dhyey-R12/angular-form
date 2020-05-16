@@ -108,7 +108,6 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
     this.service.appointment(value).subscribe(
       data => {
         this.data.push(value);
-        // this.last_id.push(this.last_id);
         console.log("POST Request is successful", data);
         value.id = data
         console.log('this is prm id ====>', value.id);
@@ -171,6 +170,7 @@ export class AppointmentComponent implements OnInit/* , AfterViewInit */ {
         console.log("this is new data", data)
         this.isShow = false
         this.isButtonVisible = false;
+        this.appoint.reset();
       })
   }
 }

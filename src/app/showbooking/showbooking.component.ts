@@ -54,6 +54,8 @@ export class ShowbookingComponent implements OnInit {
     localStorage.setItem('pri_id', JSON.stringify(booking.id));
     // this.router.navigate(['appointment'], { state: this.booking });
     this.service.sendmessage(booking);
+    this.service.hideButton(this.isShow);
+    this.service.hideButton(this.isButtonVisible)
   }
   delete(id) {
     console.log("Id ====>", id)

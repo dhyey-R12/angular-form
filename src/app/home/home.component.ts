@@ -21,6 +21,10 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
         this.jsonapifile = data
         localStorage.removeItem('ID');
+        localStorage.removeItem('value');
+        localStorage.removeItem('pri_id');
+        localStorage.removeItem('user_email');
+        localStorage.removeItem('user');
       })
   }
   // greetStudent(){

@@ -16,10 +16,35 @@ export class ApiService {
 
   private _hide = new Subject<any>();
   hide$ = this._hide.asObservable();
+  user: any;
+  usremail: any;
 
   constructor(private http: HttpClient, private httpClient: HttpClient) { }
+
+  login(value){
+  return  this.http.get(`http://localhost/wordpress/wp-json/custom-plugin/login?username=${value.username}&password=${value.password}`)
+  }
+
   isAppointmentRights(): boolean {
-    return true;
+    // return true;
+    this.user = JSON.parse(localStorage.getItem('value'))
+    console.log('this service user', this.user)
+    console.log('this is user', this.user.username)
+    if (this.user.username == "" || this.user.password == "") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  interceptorauth(): boolean {
+    this.usremail = JSON.parse(localStorage.getItem('user_email'))
+    console.log('user_email', this.usremail)
+    if (this.usremail == null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   hideButton(hide : any){
@@ -36,10 +61,10 @@ export class ApiService {
 
   booking() {
     let uid = localStorage.getItem('ID');
-
+    var email= localStorage.getItem('user_email');
+    
     console.log("Id =>", uid)
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-
     return this.http.get
       (`http://localhost/wordpress/wp-json/custom-plugin/booking?pinged=${uid}`,
         { headers })
